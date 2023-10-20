@@ -76,6 +76,7 @@
 <button onclick='CalculateCompatibility()'>Calculate Compatibility</button>
 <p id='compatibility'></p>
 
+<p id='message'></p>
 
 <script>
 console.log('Starting Matchmaker...');
@@ -91,7 +92,7 @@ function CalculateCompatibility() {
         5
     ]
 
-const MAX_SCORE = 25;
+    const MAX_SCORE = 25;
 
     let question1Response = document.getElementById('q1').selectedOptions[0].value;
     let question2Response = document.getElementById('q2').selectedOptions[0].value;
@@ -110,24 +111,20 @@ const MAX_SCORE = 25;
     console.log(document.getElementById('q2').selectedOptions[0].value);
     console.log(question2Response);
 
-
     console.log('Question 3 Answers:')
     console.log(document.getElementById('q3').selectedOptions[0].text);
     console.log(document.getElementById('q3').selectedOptions[0].value);
     console.log(question2Response);
-
 
     console.log('Question 4 Answers:')
     console.log(document.getElementById('q4').selectedOptions[0].text);
     console.log(document.getElementById('q4').selectedOptions[0].value);
     console.log(question2Response);
 
-
     console.log('Question 5 Answers:')
     console.log(document.getElementById('q5').selectedOptions[0].text);
     console.log(document.getElementById('q5').selectedOptions[0].value);
     console.log(question2Response);
-
 
     let question1Compatibility = 5 - Math.abs(question1Response - DESIRED_RESPONSE[0])
     let question2Compatibility = 5 - Math.abs(question2Response - DESIRED_RESPONSE[1])
@@ -147,12 +144,26 @@ const MAX_SCORE = 25;
     totalCompatibility = Math.round(totalCompatibility)
     console.log('tc=' + totalCompatibility);
 
-
-        document.getElementById('compatibility').innerHTML = 'Your compatibility is: ' + totalCompatibility;
-        
+    document.getElementById('compatibility').innerHTML = 'Your compatibility is: ' + totalCompatibility;
+   console.log('tc='+totalCompatibility);
+    if (totalCompatibility >= 76) {
+      console.log('We can be best friends.');
+      document.getElementById('message').innerHTML = 'We can be best friends.';
+    } else if (totalCompatibility >= 50) {
+      console.log('We can be friends.');
+      document.getElementById('message').innerHTML = 'We can be friends.';
+    } else {
+      console.log('See you around.')
+      document.getElementById('message').innerHTML = 'See you around.';
     }
+    
+         
+
+  
+  }
 
    
+
 
 </script>
 
