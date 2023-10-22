@@ -13,11 +13,12 @@
 
 <body>
     <h1>Matchmaker</h1>
-    <p>Instructions: Read each phrase, and select the option that relates to you the most. After you've selected an option for every phrase, click "Calculate Compatibility" to see how well we would get along!</p>
+    <p>Instructions: For each phrase, read it and select the option that relates to you the most. After you've selected an option for every phrase, click "Calculate Compatibility" to see how well we would get along!</p>
 
 
     <label>Winter is the best season.</label><br>
     <select id='q1'>
+    <option value='6'>Select an option</option>
     <option value='5'>Strongly Agree</option>
     <option value='4'>Agree</option>
     <option value='3'>Neither agree or disagree</option>
@@ -31,6 +32,7 @@
 
     <label>September is the best month of the year.</label><br>
     <select id='q2'>
+    <option value='6'>Select an option</option>
     <option value='5'>Strongly Agree</option>
     <option value='4'>Agree</option>
     <option value='3'>Neither agree or disagree</option>
@@ -43,6 +45,7 @@
 
     <label>Basketball is the best sport to watch.</label><br>
     <select id='q3'>
+    <option value='6'>Select an option</option>
     <option value='5'>Strongly Agree</option>
     <option value='4'>Agree</option>
     <option value='3'>Neither agree or disagree</option>
@@ -54,6 +57,7 @@
 
     <label>You are a night owl rather than an early bird.</label><br>
     <select id='q4'>
+    <option value='6'>Select an option</option>
     <option value='5'>Strongly Agree</option>
     <option value='4'>Agree</option>
     <option value='3'>Neither agree or disagree</option>
@@ -65,6 +69,7 @@
 
     <label>Rainy days are better than sunny days.</label> <br>
     <select id='q5'>
+    <option value='6'>Select an option</option>
     <option value='5'>Strongly Agree</option>
     <option value='4'>Agree</option>
     <option value='3'>Neither agree or disagree</option>
@@ -78,11 +83,17 @@
 
 <p id='message'></p>
 
+
 <script>
+
 console.log('Starting Matchmaker...');
 
 function CalculateCompatibility() {
     console.log('calculateCompatibility()');
+
+    const MESSAGE_GREAT = 'We can be best friends.'
+    const MESSAGE_GOOD = 'We can be friends.'
+    const MESSAGE_BAD = 'See you around.'
 
     const DESIRED_RESPONSE = [
         5,
@@ -147,23 +158,17 @@ function CalculateCompatibility() {
     document.getElementById('compatibility').innerHTML = 'Your compatibility is: ' + totalCompatibility;
    console.log('tc='+totalCompatibility);
     if (totalCompatibility >= 76) {
-      console.log('We can be best friends.');
-      document.getElementById('message').innerHTML = 'We can be best friends.';
+      console.log(MESSAGE_GREAT);
+      document.getElementById('message').innerHTML = MESSAGE_GREAT;
     } else if (totalCompatibility >= 50) {
-      console.log('We can be friends.');
-      document.getElementById('message').innerHTML = 'We can be friends.';
+      console.log(MESSAGE_GOOD);
+      document.getElementById('message').innerHTML = MESSAGE_GOOD;
     } else {
-      console.log('See you around.')
-      document.getElementById('message').innerHTML = 'See you around.';
+      console.log(MESSAGE_BAD)
+      document.getElementById('message').innerHTML = MESSAGE_BAD;
     }
-    
-         
-
   
   }
-
-   
-
 
 </script>
 
